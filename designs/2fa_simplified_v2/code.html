@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InsightFlow - Two-Factor Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "surface-variant": "#2d3449",
+                        "secondary": "#cdbdff",
+                        "on-primary-fixed-variant": "#003ab3",
+                        "tertiary-container": "#007d8c",
+                        "surface-container-high": "#222a3d",
+                        "surface-container": "#171f33",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#20005f",
+                        "on-secondary": "#370096",
+                        "on-primary-container": "#f7f5ff",
+                        "on-surface-variant": "#c3c5d8",
+                        "secondary-container": "#5203d5",
+                        "inverse-primary": "#004ee8",
+                        "primary-container": "#2962ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-tertiary-container": "#e6fbff",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#e8deff",
+                        "on-primary-fixed": "#001550",
+                        "on-tertiary": "#00363d",
+                        "surface-container-low": "#131b2e",
+                        "on-secondary-container": "#c0acff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#283044",
+                        "on-surface": "#dae2fd",
+                        "primary": "#b6c4ff",
+                        "on-primary": "#002780",
+                        "surface-container-lowest": "#060e20",
+                        "surface": "#0b1326",
+                        "tertiary-fixed": "#9cf0ff",
+                        "outline-variant": "#434656",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "on-error": "#690005",
+                        "tertiary": "#00daf3",
+                        "surface-tint": "#b6c4ff",
+                        "surface-bright": "#31394d",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-surface": "#dae2fd",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "secondary-fixed-dim": "#cdbdff",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "surface-dim": "#0b1326",
+                        "on-secondary-fixed-variant": "#4f00d0",
+                        "outline": "#8d90a2",
+                        "on-background": "#dae2fd",
+                        "primary-fixed": "#dce1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin_safe": "32px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "grid_columns": "12"
+                    },
+                    "fontFamily": {
+                        "code-snippet": ["Space Grotesk"],
+                        "mono-label": ["Space Grotesk"],
+                        "body-main": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "code-snippet": ["13px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "mono-label": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-main": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(23, 31, 51, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(141, 144, 162, 0.15);
+        }
+        .biometric-gradient {
+            background: radial-gradient(circle at center, rgba(41, 98, 255, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-main selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50">
+<div class="flex items-center gap-2">
+<span class="text-blue-600 dark:text-blue-500 material-symbols-outlined text-2xl">insights</span>
+<span class="text-xl font-bold tracking-tighter text-slate-50 font-h2">InsightFlow</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-blue-400 transition-colors duration-200 Active:opacity-80 scale-95 transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+</header>
+<main class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+<!-- Left Side: Identity Verification Visuals -->
+<section class="hidden md:flex flex-col justify-center items-center relative overflow-hidden bg-surface-container-lowest border-r border-outline-variant/30">
+<div class="absolute inset-0 z-0">
+<img alt="Identity Verification" class="w-full h-full object-cover opacity-20 mix-blend-overlay" data-alt="Abstract high-tech visualization of digital identity with glowing neural network nodes and biometric data streams in deep blue and indigo tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQxtfyyKTVgqxCIqCT7KYKnNQxFAMeGJeb30ojWonW2TGhkbYP1EkUEalhYQizd4AcVP0jdrx8ZEfT3VEsd1DvbZ6w5NHSEGkhkEWZ7s49YyqkGOaszA4bmUi_nNX22WvIHUlEqQPUC-EX-8NaoV0_5dIkDduOWS558SEm07x7Y4awFqYZdqSyphT1KOH9ljrRKp_v21eOYNz0qW-ocHK4eYylRYzxiPdONbi1iQnGSjcwvpYDOZpp-tIryDGC2cQ1P1nKR0IvHy4"/>
+<div class="absolute inset-0 biometric-gradient"></div>
+</div>
+<div class="relative z-10 p-xl max-w-lg">
+<div class="mb-lg inline-flex items-center gap-2 px-md py-xs glass-panel rounded-full border-primary/20">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-mono-label text-mono-label text-tertiary uppercase tracking-widest">Secure Protocol Lvl 4</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface mb-md leading-tight">Identity <br/><span class="text-primary">Verification</span></h1>
+<p class="font-body-main text-body-main text-on-surface-variant mb-xl">
+                    InsightFlow uses advanced multi-layer encryption and semantic analysis to ensure your data remains accessible only to you.
+                </p>
+<!-- Status Cards -->
+<div class="grid grid-cols-1 gap-md">
+<div class="glass-panel p-md rounded-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<div>
+<p class="font-mono-label text-mono-label text-on-surface">ENCRYPTION</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AES-256 GCM Active</p>
+</div>
+</div>
+<div class="glass-panel p-md rounded-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary">fingerprint</span>
+</div>
+<div>
+<p class="font-mono-label text-mono-label text-on-surface">AUTHENTICATION</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2-Factor Handshake Required</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom tech footer decoration -->
+<div class="absolute bottom-md left-md right-md flex justify-between items-end opacity-40">
+<div class="h-24 w-[1px] bg-gradient-to-t from-primary to-transparent"></div>
+<div class="font-mono-label text-[10px] text-outline text-right">
+                    NODE_ID: 882-QX-4<br/>
+                    SYSTEM_CLOCK: SYNCED
+                </div>
+</div>
+</section>
+<!-- Right Side: Verification Form -->
+<section class="flex flex-col justify-center items-center px-margin_safe bg-background pt-xl">
+<div class="w-full max-w-md">
+<div class="text-center md:text-left mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface mb-sm">Verification Required</h2>
+<p class="font-body-main text-body-main text-on-surface-variant">
+                        To continue to your workspace, please enter the 6-digit code sent to your linked authentication device.
+                    </p>
+</div>
+<form class="space-y-xl">
+<!-- Code Inputs -->
+<div class="flex justify-between gap-2 sm:gap-md">
+<input class="w-12 h-16 sm:w-14 sm:h-16 text-center text-h3 font-h3 bg-surface-container-low border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-lg transition-all outline-none text-on-surface" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-16 sm:w-14 sm:h-16 text-center text-h3 font-h3 bg-surface-container-low border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-lg transition-all outline-none text-on-surface" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-16 sm:w-14 sm:h-16 text-center text-h3 font-h3 bg-surface-container-low border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-lg transition-all outline-none text-on-surface" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-16 sm:w-14 sm:h-16 text-center text-h3 font-h3 bg-surface-container-low border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-lg transition-all outline-none text-on-surface" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-16 sm:w-14 sm:h-16 text-center text-h3 font-h3 bg-surface-container-low border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-lg transition-all outline-none text-on-surface" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-16 sm:w-14 sm:h-16 text-center text-h3 font-h3 bg-surface-container-low border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-lg transition-all outline-none text-on-surface" maxlength="1" placeholder="·" type="text"/>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-md">
+<button class="w-full py-md px-lg bg-primary-container text-on-primary-container font-h3 text-h3 rounded-xl hover:bg-inverse-primary transition-all duration-300 flex items-center justify-center gap-md group" type="submit">
+<span>Verify Account</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-md pt-sm">
+<button class="text-secondary font-mono-label text-mono-label hover:text-primary transition-colors flex items-center gap-sm" type="button">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                                Resend Code
+                            </button>
+<button class="text-on-surface-variant font-mono-label text-mono-label hover:text-on-surface transition-colors flex items-center gap-sm" type="button">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+                                Help Center
+                            </button>
+</div>
+</div>
+</form>
+<!-- Security Trust Note -->
+<div class="mt-xl pt-lg border-t border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-outline flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-base">lock</span>
+                        Encrypted end-to-end verification
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB (Hidden on Verification page as per Shell Visibility Rules) -->
+</body></html>
