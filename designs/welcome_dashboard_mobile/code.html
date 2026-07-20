@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#b6c4ff",
+                    "on-secondary-fixed-variant": "#4f00d0",
+                    "on-error": "#690005",
+                    "on-background": "#dae2fd",
+                    "on-tertiary-container": "#e6fbff",
+                    "inverse-surface": "#dae2fd",
+                    "surface-container-highest": "#2d3449",
+                    "on-tertiary": "#00363d",
+                    "surface-bright": "#31394d",
+                    "on-primary-container": "#f7f5ff",
+                    "secondary-fixed": "#e8deff",
+                    "on-secondary-container": "#c0acff",
+                    "surface-variant": "#2d3449",
+                    "on-primary-fixed-variant": "#003ab3",
+                    "secondary-fixed-dim": "#cdbdff",
+                    "surface-container-high": "#222a3d",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "tertiary-fixed-dim": "#00daf3",
+                    "surface": "#0b1326",
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#5203d5",
+                    "surface-tint": "#b6c4ff",
+                    "outline-variant": "#434656",
+                    "on-secondary": "#370096",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-surface-variant": "#c3c5d8",
+                    "tertiary-container": "#007d8c",
+                    "primary-fixed": "#dce1ff",
+                    "on-surface": "#dae2fd",
+                    "surface-container": "#171f33",
+                    "on-primary": "#002780",
+                    "error-container": "#93000a",
+                    "surface-container-low": "#131b2e",
+                    "inverse-primary": "#004ee8",
+                    "on-secondary-fixed": "#20005f",
+                    "surface-container-lowest": "#060e20",
+                    "tertiary-fixed": "#9cf0ff",
+                    "outline": "#8d90a2",
+                    "error": "#ffb4ab",
+                    "secondary": "#cdbdff",
+                    "primary-container": "#2962ff",
+                    "on-primary-fixed": "#001550",
+                    "background": "#0b1326",
+                    "tertiary": "#00daf3",
+                    "inverse-on-surface": "#283044",
+                    "on-tertiary-fixed-variant": "#004f58",
+                    "surface-dim": "#0b1326"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin_safe": "32px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "mono-label": ["Space Grotesk"],
+                    "h1": ["Inter"],
+                    "body-main": ["Inter"],
+                    "h3": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "code-snippet": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "mono-label": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-main": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "code-snippet": ["13px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+        .glass-card {
+            background: rgba(23, 31, 51, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(67, 70, 86, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-main antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 flex justify-between items-center w-full px-4 h-16 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close up professional headshot of a person with short hair, clean cinematic studio lighting, dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVgjwKSGq6Lz2e-AE_8QLI4L55QzaI5yesy60YM1MAzKYVzitrByKV8iONgDVDvvVJsuS0YPk1zio9WMuZUWZoejaT4kYzoClmmMg98tooy0omOsImpR_9E5Gn1YP_TkuFTBCuk80tHwiySwnK5OykSI89r1MimT-fSlHmu_V_R0r-RKX9_Ygg2tjTllZKTxweTNOQjPwDuMUY4HZwdnaHtJUy0ZveM0YqlJdHwgVMmerMjfwxHTz_Abz2g0HOJmJ5aZFRgs_RI8w"/>
+</div>
+<span class="text-lg font-bold tracking-tighter text-slate-100 font-h2">InsightFlow</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800/50 hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-4 space-y-xl">
+<!-- Welcome Greeting -->
+<section class="space-y-base">
+<h1 class="font-h1 text-h1 text-on-surface leading-tight">Welcome back, Architect.</h1>
+<p class="font-body-sm text-body-sm text-outline">System operational. 12 datasets awaiting synthesis.</p>
+</section>
+<!-- Daily Insight Card -->
+<section>
+<div class="glass-card rounded-xl p-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-tertiary">eco</span>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-mono-label text-mono-label text-tertiary">DAILY INSIGHT</span>
+<p class="font-h3 text-h3 italic leading-snug text-on-surface">
+                        "The integration of urban green spaces directly correlates with a 14% increase in semantic processing speeds among metabolic data nodes."
+                    </p>
+<div class="flex items-center gap-2 mt-2">
+<div class="w-4 h-[1px] bg-outline"></div>
+<span class="font-mono-label text-[10px] text-outline uppercase tracking-widest">Urban Ecology Report v.2</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Getting Started -->
+<section class="space-y-md">
+<h2 class="font-h3 text-h3 text-on-surface">Getting Started</h2>
+<div class="grid grid-cols-2 gap-sm">
+<div class="glass-card rounded-xl p-md flex flex-col gap-md active:scale-[0.98] transition-transform">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container">upload_file</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold leading-tight">Upload your first data source</span>
+</div>
+<div class="glass-card rounded-xl p-md flex flex-col gap-md active:scale-[0.98] transition-transform">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">settings_input_component</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold leading-tight">Configure Analysis Parameters</span>
+</div>
+</div>
+</section>
+<!-- Recent Documents -->
+<section class="space-y-md">
+<div class="flex justify-between items-center">
+<h2 class="font-h3 text-h3 text-on-surface">Recent Documents</h2>
+<button class="font-mono-label text-primary-container">VIEW ALL</button>
+</div>
+<div class="space-y-sm">
+<!-- Doc 1 -->
+<div class="glass-card rounded-xl p-md flex items-center justify-between group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500">description</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-main font-medium text-on-surface">Neural_Pathways_01.json</span>
+<span class="font-body-sm text-[12px] text-outline">Modified 2h ago</span>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-primary/10 px-sm py-xs rounded-full border border-primary/20">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-mono-label text-[10px] text-primary-container">Ready</span>
+</div>
+</div>
+<!-- Doc 2 -->
+<div class="glass-card rounded-xl p-md flex items-center justify-between group">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500">analytics</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-main font-medium text-on-surface">Market_Flow_Synthesis.csv</span>
+<span class="font-body-sm text-[12px] text-outline">Modified 5h ago</span>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-tertiary/10 px-sm py-xs rounded-full border border-tertiary/20">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div>
+<span class="font-mono-label text-[10px] text-tertiary">Learning</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 rounded-full bg-primary-container text-on-primary-container shadow-[0_0_20px_rgba(41,98,255,0.4)] flex items-center justify-center active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-slate-950/90 backdrop-blur-xl border-t border-slate-800/50 px-2 py-3 flex justify-around items-center">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-blue-500 bg-blue-500/10 rounded-xl px-3 py-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest mt-1">Home</span>
+</a>
+<!-- Documents -->
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest mt-1">Documents</span>
+</a>
+<!-- Insights -->
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest mt-1">Insights</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-inter text-[10px] font-medium uppercase tracking-widest mt-1">Settings</span>
+</a>
+</nav>
+</body></html>
